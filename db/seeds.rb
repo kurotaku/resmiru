@@ -5,3 +5,22 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+ApplicationRecord.transaction do
+  ##########################
+  # ユーザー
+  ##########################
+  p '=== User ==='
+
+  users = [
+    {name: 'テストユーザーA', email: 'user.a@test.com'},
+    {name: 'テストユーザーB', email: 'user.b@test.com'},
+    {name: 'テストユーザーC', email: 'user.c@test.com'},
+  ]
+
+  users.each do |user|
+    object = User.find_or_initialize_by(user)
+    object.password = 'password'
+    object.save!
+  end
+end

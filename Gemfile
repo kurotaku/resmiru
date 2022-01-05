@@ -34,7 +34,7 @@ gem "jbuilder"
 # gem "kredis"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-# gem "bcrypt", "~> 3.1.7"
+gem "bcrypt", "~> 3.1.7"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
@@ -48,12 +48,11 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
-gem 'thor', github: 'deivid-rodriguez/thor', branch: 'support_latest_did_you_mean'
-gem 'net-smtp', require: false
+# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
+gem 'rack-cors'
 
-# devise
-gem "devise"
-gem "devise-i18n"
+# gem 'thor', github: 'deivid-rodriguez/thor', branch: 'support_latest_did_you_mean'
+gem 'net-smtp', require: false
 
 gem "annotate"
 gem "draper"

@@ -16,10 +16,6 @@ RUN ln -fs /opt/yarn/bin/yarn /usr/local/bin/yarn
 RUN apk add --no-cache git build-base libxml2-dev libxslt-dev mysql-dev mysql-client tzdata bash less graphviz && \
     cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 
-RUN apk --no-cache add msttcorefonts-installer fontconfig font-bitstream-type1 ghostscript-fonts ttf-freefont && \
-    update-ms-fonts && \
-    fc-cache -f
-
 RUN apk --update add imagemagick
 
 ENV APP_ROOT /app
@@ -35,7 +31,7 @@ ENV BUNDLE_PATH=/bundle \
 
 ENV PATH="${BUNDLE_BIN}:${PATH}"
 
-ENV BUNDLER_VERSION 2.2.22
+ENV BUNDLER_VERSION 2.3.4
 
 RUN gem install --no-document bundler -v $BUNDLER_VERSION
 RUN bundle config --global build.nokogiri --use-system-libraries
