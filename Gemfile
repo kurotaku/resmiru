@@ -54,12 +54,14 @@ gem 'rack-cors'
 # gem 'thor', github: 'deivid-rodriguez/thor', branch: 'support_latest_did_you_mean'
 gem 'net-smtp', require: false
 
+gem 'active_model_serializers'
 gem "annotate"
 gem "draper"
 gem "enum_help"
+gem 'jwt'
 gem "rails-i18n"
-
 gem "sysrandom"
+gem 'thread_safe'
 gem "ulid", require: false
 
 group :development, :test do
