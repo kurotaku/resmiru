@@ -1,4 +1,6 @@
 module Jwt::TokenProviderService
+  require 'jwt'
+  
   extend self
 
   def call(payload)

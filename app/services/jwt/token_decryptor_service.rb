@@ -1,4 +1,6 @@
 module Jwt::TokenDecryptorService
+  require 'jwt'
+  
   extend self
 
   def call(token)

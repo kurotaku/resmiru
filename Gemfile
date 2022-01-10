@@ -40,10 +40,12 @@ gem "bcrypt", "~> 3.1.7"
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
 # Reduces boot times through caching; required in config/boot.rb
+gem 'net-imap'
+gem 'net-pop'
 gem "bootsnap", require: false
 
 # Use Sass to process CSS
-# gem "sassc-rails"
+gem "sassc-rails"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
@@ -56,10 +58,12 @@ gem 'net-smtp', require: false
 
 gem 'active_model_serializers'
 gem "annotate"
+gem 'dotenv-rails'
 gem "draper"
 gem "enum_help"
-gem 'jwt'
+gem 'jwt', require: false
 gem "rails-i18n"
+gem "rails_same_site_cookie"
 gem "sysrandom"
 gem 'thread_safe'
 gem "ulid", require: false
