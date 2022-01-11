@@ -1,7 +1,7 @@
 module Api
   class V1::SessionsController < ApiController
     skip_before_action :verify_authenticity_token
-    protect_from_forgery with: :null_session
+    # protect_from_forgery with: :null_session
     
     def index
       cookies.permanent[:jwt] = { value: 'success', httponly: true, same_site: :none, secure: true, domain: 'resmiru.com' }
