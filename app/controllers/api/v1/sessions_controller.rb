@@ -4,6 +4,7 @@ module Api
     protect_from_forgery with: :null_session
     def create
       cookies.permanent[:jwt] = { value: 'success', httponly: true, same_site: :none, secure: true }
+      render json: { success: { messages: ['test'] } }
       p '========'
       p cookies
       # user = User.find_by(email: session_params[:email])
