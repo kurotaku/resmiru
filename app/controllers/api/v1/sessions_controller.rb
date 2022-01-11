@@ -3,8 +3,8 @@ module Api
     skip_before_action :verify_authenticity_token
 
     def create
-      user = User.find_by(email: session_params[:email])
-
+      user = User.where(email: session_params[:email])&.last
+      p user
       if user&.authenticate(session_params[:password])
         token = Jwt::TokenProviderService.call(user_id: user.id)
         # cookies.signed.permanent[:jwt] = { value: token, httponly: true }
