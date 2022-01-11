@@ -14,7 +14,7 @@ default: &default
   charset: utf8mb4
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: <%= ENV['MYSQL_USERNAME'] || 'resmiru' %>
+  username: <%= 'resmiru' %>
   password: resmiru
   host: <%= ENV['MYSQL_HOST'] || 'db' %>
 
@@ -52,7 +52,7 @@ test:
 #
 production:
   <<: *default
-  username: <%= ENV['MYSQL_USERNAME'] || Rails.application.credentials.prd&.[](:db_user) %>
-  password: <%= ENV['MYSQL_PASSWORD'] || Rails.application.credentials.prd&.[](:db_password) %>
-  host: <%= ENV['MYSQL_HOST'] || Rails.application.credentials.prd&.[](:db_host) %>
+  username: <%= ENV['MYSQL_USERNAME'] %>
+  password: <%= ENV['MYSQL_PASSWORD'] %>
+  host: <%= ENV['MYSQL_HOST'] %>
   database: resmiru_production
