@@ -1,25 +1,31 @@
 version: '3.8'
 services:
-  web:
-    container_name: web
-    build:
-      context: .
-      dockerfile: nginx/Dockerfile
-    ports:
-      - 80:80
   app:
     container_name: app
     platform: linux/x86_64
     build: .
-    command: /bin/sh -c "rm -f /app/tmp/pids/server.pid && bundle install && bundle exec rails assets:precompile && bundle exec rails s -e production"
+    command: /bin/sh -c "rm -f /app/tmp/pids/server.pid && bundle exec rails assets:precompile && bundle exec rails s -e production"
     volumes:
-      - bundle_install:/bundle
+      - bundle-install:/bundle
       - .:/app
-      - gem_vol:/usr/local/bundle
+      - gem-vol:/usr/local/bundle
       - node-modules:/var/www/web/node_modules
+      - tmp-data:/app/tmp
     ports:
-      - "3000:3000"
+      - 3000:3000
+  nginx:
+    container_name: nginx
+    build:
+      context: .
+      dockerfile: nginx/Dockerfile
+    volumes:
+      - tmp-data:/app/tmp
+    ports:
+      - 80:80
+    depends_on:
+      - app
 volumes:
-  gem_vol:
-  bundle_install:
+  tmp-data:
+  gem-vol:
+  bundle-install:
   node-modules:
