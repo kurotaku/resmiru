@@ -11,7 +11,7 @@ module Api
     end
 
     def create
-      cookies.permanent[:jwt] = { value: 'success', httponly: false, same_site: :none, secure: true, domain: 'resmiru.com' }
+      cookies.permanent[:jwt] = { value: 'success', httponly: true, same_site: :none, secure: true, domain: 'resmiru.com' }
       render json: { success: { messages: ['test'] } }
       p '========'
       p cookies
