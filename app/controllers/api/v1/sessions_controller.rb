@@ -3,7 +3,7 @@ module Api
     skip_before_action :verify_authenticity_token
     protect_from_forgery with: :null_session
     def create
-      cookies.permanent[:jwt] = { value: 'success', httponly: true, same_site: :none, secure: true }
+      cookies.permanent[:jwt] = { value: 'success', httponly: true, same_site: :none, secure: true, domain: 'resmiru.com' }
       render json: { success: { messages: ['test'] } }
       p '========'
       p cookies
